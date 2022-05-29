@@ -30,17 +30,18 @@ function buildDeck() {
   for (let i = 0; i < ranks.length; i++) {
 
     for (let j = 0; j < suits.length; j++) {
-      deck.push({
-        "suit": suits[j],
-        "rank": ranks[i],
-        "value": i + 1,
-
-      });
+      const card = {
+        value: i, // 1
+        rank: ranks[i], // "1"
+        suits: suits[j] // "spades"
+      };
+      deck.push(card);
     }
   }
-
+  console.log(deck);
   return deck;
 }
+buildDeck();
 
 // STEP TWO - Shuffling your deck
 //* 1. use a function declaration to create a function called shuffle that takes deck as an argument.[x]
@@ -161,10 +162,9 @@ function playGame() {
     }
 
     currentCard = nextCard;
-    nextCard = deck.pop();
   }
   const message = deck.length !== 0 ? `${playerName}, you won!!!` : `Sorry ${playerName}, you're out of card. You lose.`;
   console.log(message);
 }
 
-playGame();
+// playGame();
